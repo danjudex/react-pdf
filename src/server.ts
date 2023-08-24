@@ -7,7 +7,9 @@ const app = express();
 const PORT = 3000;
 
 app.get("/generate-pdf", async (_req, res) => {
-  const pdfStream = await ReactPDF.renderToStream(<MyDocument />);
+  const pdfStream = await ReactPDF.renderToStream(
+    React.createElement(MyDocument)
+  );
 
   res.setHeader("Content-Type", "application/pdf");
 
